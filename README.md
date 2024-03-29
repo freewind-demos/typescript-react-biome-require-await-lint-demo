@@ -1,11 +1,21 @@
-TypeScript React Hello World Demo
+TypeScript React Biome Lint Demo
 =================================
 
-一个最简单的Typescript + react项目，使用了webpack
+Biome是一个用rust写的js/ts linter/formatter/fixer，据说很快。
+
+但是我发现对于react hook dependency的问题，它不能像eslint插件那样自动修下，只能提示错误，这不太方便。
+
+这里就只能添加comment禁止检查的选项，而没有自动修正的选项。
+![issue](./images/image.png)
+
+生成biome.json:
 
 ```
-npm install
-npm run demo
+pnpm run init
 ```
 
-It will open page on browser automatically.
+Fix:
+
+```
+npm run fix
+```
