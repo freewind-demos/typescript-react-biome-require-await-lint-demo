@@ -1,20 +1,23 @@
-import React, { useMemo, useState } from "react";
 import type { FC } from "react";
+import React, { useEffect } from "react";
 
-import "./Hello.pcss";
+async function asyncHello(name: string): Promise<string> {
+	return new Promise((resolve) => {
+		setTimeout(() => {
+			resolve(`Hello ${name}`);
+		}, 1000);
+	});
+}
+export const Hello: FC = () => {
 
-type Props = {};
-
-export const Hello: FC<Props> = ({}) => {
-	let [a, setA] =  useState(0);
-
-	const bbb = useMemo(() => {
-		return a + 1;
+	useEffect(() => {
+		const value = asyncHello("React");
+		console.log(value);
 	}, []);
 
 	return (
-		<div           className={"Hello"}>
-			   <h1>Hello React {a}</h1>
-		   </div>
+		<div className={"Hello"}>
+			<h1>Hello Roime</h1>
+		</div>
 	);
 };
